@@ -1,0 +1,68 @@
+def clear_screen():
+    print "\n"*50
+    
+state = "start"
+strength=4
+
+while True:
+    clear_screen()
+    if state == "start":
+        print """
+    I awaken in my prison cell, sore but no worse for the wear
+    but who brought me here? And where is here anyway? 
+    Why can't I remember anything? Surely if... if... Curses what is her? his? name? 
+    He could help me but only if i can bring myself to remember his name... 
+    or mine.
+    [1] try to turn the brass doorknob on the lone wooden door
+    [2] go back to sleep"""
+        choice = raw_input() 
+        if choice =="1":
+            state="room2"
+        if choice =="2":
+            state="start"
+    
+    
+    elif state == "room2":
+        clear_screen()
+        print """
+    I Turn the doorknob and a horrifying shriek resounds through the small chamber
+    Before I have time to react a fight is upon me!
+    [1] Grapple with the rushing goblin
+    [2] Look for a weapon"""
+        choice = raw_input()
+        if choice =="1" and strength > 2:
+            state="room2part2"
+        if choice =="1"and strength <= 2:
+            state="gameover"
+            if state == "gameover":
+                clear_screen()
+                print "GAME OVER!"
+                break
+        if choice =="2":
+            state = "goblin death"
+    
+    elif state == "goblin death":
+        print"""
+        My eyes dart around desperatly for a weapon, for anything at all to defend myself
+        alas I am not quick enough and the goblin enjoys a feast at my expence
+        
+        
+        GAME OVER!!"""
+        break
+         
+        
+    elif state == "room2part2":
+        print """ I throw the goblin over my head like a sack of potatoes and he hits the wall bursting into a thousand butterflies.
+        [1] Taking a moments breath I notice the hallway this creature just charged from. It is less than ten feet long and at the far side a door sits ajar.
+        I make my way towards it"""
+        choice = raw_input()
+        if choice =="1":
+            state ="room3"
+            
+    elif state == "room3":
+        print """ etaletcetera""" 
+        break
+        
+      
+     
+        
