@@ -33,4 +33,27 @@ def bin_search(find, items, low=0, high=None):
 	elif find < items[position]:
 		return bin_search(find, items, low, position)
 
-print bin_search(-1,[-9,0,1,2,3,4,5,9])
+
+def create_sum(dig_list,find,found_list=[]):
+	if len(dig_list)==0:
+		if sum(found_list)==find:
+			print sum(found_list)
+			print found_list 
+		return
+	undecided_value=dig_list.pop(0)
+	neg_undecided_value=undecided_value*(-1)
+	list_copy1=dig_list
+	list_copy2=dig_list[:]
+
+	found_list_copy1=found_list+[undecided_value]
+	found_list_copy2=found_list+[neg_undecided_value]
+	create_sum(list_copy1,find,found_list_copy1)
+	create_sum(list_copy2,find,found_list_copy2)
+
+
+
+create_sum([3,3,3,1,50,25,5,1,1,1,1,1,1,1,1,1,1,0],100)
+
+
+
+
