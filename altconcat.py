@@ -61,8 +61,36 @@ def create_sum(dig_list,find,found_list=[]):
 
 
 
-create_sum([1,2,3,4,5,6,7,8,9],100)
+#create_sum([1,2,3,4,5,6,7,8,9],100)
 
 
 
 
+
+def Binary_search(list,find,low=0,high=None):
+	length=len(list)
+	value = False
+	if high is None:
+		high=length
+	half=((high - low)/2) + low 
+	if list[half] == find:
+		return half
+	if (high-low) < 2:
+		return "Value not found in list."
+	if low == high:
+		return "Value not found in list."
+	if half == length:
+		return "Value not found in list."		
+	if list[half] > find:
+		return Binary_search(list,find,low,half)
+	if list[half] < find:
+		return Binary_search(list,find,half,high)
+
+
+
+
+
+
+
+list1=[1,2,3,4]
+print Binary_search(list1,5)
